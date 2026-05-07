@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" width="1100" height="720" font-family="Manrope, system-ui, sans-serif">
+  <style>
+    .lane-label { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+    .step-label { font-size: 11px; font-weight: 500; }
+    .step-num { font-size: 11px; font-weight: 700; fill: #FFFFFF; }
+    .group-title { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; fill: #5A5C72; }
+    text { fill: #0A0A0A; }
+  </style>
+  <defs>
+    <marker id="seq-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L9 5 L0 10 Z" fill="#5A5C72"/>
+    </marker>
+    <marker id="seq-arr-back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L9 5 L0 10 Z" fill="#A687D4"/>
+    </marker>
+  </defs>
+
+  <!-- Lane headers -->
+  <g>
+    <rect x="40" y="30" width="140" height="44" rx="10" fill="#D6E8F7" stroke="#6FA1D0"/>
+    <text x="110" y="58" class="lane-label" text-anchor="middle" fill="#1E2A8A">User</text>
+
+    <rect x="220" y="30" width="140" height="44" rx="10" fill="#D6E8F7" stroke="#6FA1D0"/>
+    <text x="290" y="58" class="lane-label" text-anchor="middle" fill="#1E2A8A">Lucid UI</text>
+
+    <rect x="400" y="30" width="140" height="44" rx="10" fill="#E5DCF5" stroke="#A687D4"/>
+    <text x="470" y="58" class="lane-label" text-anchor="middle" fill="#1E2A8A">/api/analyze</text>
+
+    <rect x="580" y="30" width="140" height="44" rx="10" fill="#FCE0CC" stroke="#E89B5C"/>
+    <text x="650" y="58" class="lane-label" text-anchor="middle" fill="#B8631A">Scraper</text>
+
+    <rect x="760" y="30" width="140" height="44" rx="10" fill="#FCE0CC" stroke="#E89B5C"/>
+    <text x="830" y="58" class="lane-label" text-anchor="middle" fill="#B8631A">Analyzer</text>
+
+    <rect x="940" y="30" width="120" height="44" rx="10" fill="#1E2A8A"/>
+    <text x="1000" y="58" class="lane-label" text-anchor="middle" fill="#FFFFFF">Claude</text>
+  </g>
+
+  <!-- Lifelines -->
+  <line x1="110" y1="74" x2="110" y2="700" stroke="#6FA1D0" stroke-width="1" stroke-dasharray="3 4"/>
+  <line x1="290" y1="74" x2="290" y2="700" stroke="#6FA1D0" stroke-width="1" stroke-dasharray="3 4"/>
+  <line x1="470" y1="74" x2="470" y2="700" stroke="#A687D4" stroke-width="1" stroke-dasharray="3 4"/>
+  <line x1="650" y1="74" x2="650" y2="700" stroke="#E89B5C" stroke-width="1" stroke-dasharray="3 4"/>
+  <line x1="830" y1="74" x2="830" y2="700" stroke="#E89B5C" stroke-width="1" stroke-dasharray="3 4"/>
+  <line x1="1000" y1="74" x2="1000" y2="700" stroke="#1E2A8A" stroke-width="1" stroke-dasharray="3 4"/>
+
+  <!-- ===== Step 1: User submits URL ===== -->
+  <line x1="110" y1="110" x2="285" y2="110" stroke="#5A5C72" stroke-width="1.5" marker-end="url(#seq-arr)"/>
+  <circle cx="100" cy="110" r="11" fill="#1E2A8A"/>
+  <text x="100" y="114" class="step-num" text-anchor="middle">1</text>
+  <text x="115" y="105" class="step-label">Pastes URL: levvate.com</text>
+
+  <!-- Step 2: UI POSTs -->
+  <line x1="290" y1="150" x2="465" y2="150" stroke="#5A5C72" stroke-width="1.5" marker-end="url(#seq-arr)"/>
+  <circle cx="280" cy="150" r="11" fill="#1E2A8A"/>
+  <text x="280" y="154" class="step-num" text-anchor="middle">2</text>
+  <text x="295" y="145" class="step-label">POST /api/analyze {url}</text>
+
+  <!-- Step 3: API to scraper -->
+  <line x1="470" y1="195" x2="645" y2="195" stroke="#5A5C72" stroke-width="1.5" marker-end="url(#seq-arr)"/>
+  <circle cx="460" cy="195" r="11" fill="#1E2A8A"/>
+  <text x="460" y="199" class="step-num" text-anchor="middle">3</text>
+  <text x="475" y="190" class="step-label">scrapeUrl(url)</text>
+
+  <!-- Group: scrape -->
+  <rect x="595" y="215" width="220" height="100" rx="8" fill="#FCE0CC" fill-opacity="0.4" stroke="#E89B5C" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="605" y="232" class="group-title">scrape and clean</text>
+
+  <!-- 3a Fetch -->
+  <line x1="650" y1="250" x2="650" y2="265" stroke="#E89B5C" stroke-width="2"/>
+  <text x="660" y="255" class="step-label" fill="#B8631A">fetch HTML</text>
+
+  <!-- 3b parse -->
+  <line x1="650" y1="285" x2="650" y2="300" stroke="#E89B5C" stroke-width="2"/>
+  <text x="660" y="290" class="step-label" fill="#B8631A">cheerio strip + extract</text>
+
+  <!-- Step 4: Scraper returns -->
+  <line x1="650" y1="345" x2="475" y2="345" stroke="#A687D4" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#seq-arr-back)"/>
+  <circle cx="660" cy="345" r="11" fill="#1E2A8A"/>
+  <text x="660" y="349" class="step-num" text-anchor="middle">4</text>
+  <text x="490" y="340" class="step-label">ScrapedContent</text>
+
+  <!-- Step 5: API to analyzer -->
+  <line x1="470" y1="385" x2="825" y2="385" stroke="#5A5C72" stroke-width="1.5" marker-end="url(#seq-arr)"/>
+  <circle cx="460" cy="385" r="11" fill="#1E2A8A"/>
+  <text x="460" y="389" class="step-num" text-anchor="middle">5</text>
+  <text x="485" y="380" class="step-label">analyzeContent(scraped)</text>
+
+  <!-- Group: analyze -->
+  <rect x="775" y="405" width="240" height="120" rx="8" fill="#1E2A8A" fill-opacity="0.06" stroke="#1E2A8A" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="785" y="422" class="group-title">prompt + Claude call</text>
+
+  <!-- 5a build prompt -->
+  <line x1="830" y1="440" x2="830" y2="455" stroke="#1E2A8A" stroke-width="2"/>
+  <text x="840" y="445" class="step-label" fill="#1E2A8A">assemble rubric prompt</text>
+
+  <!-- 5b call Claude -->
+  <line x1="830" y1="480" x2="995" y2="480" stroke="#5A5C72" stroke-width="1.5" marker-end="url(#seq-arr)"/>
+  <text x="845" y="475" class="step-label">claude.messages.create</text>
+
+  <!-- 5c Claude returns -->
+  <line x1="1000" y1="510" x2="835" y2="510" stroke="#A687D4" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#seq-arr-back)"/>
+  <text x="845" y="505" class="step-label">strict JSON</text>
+
+  <!-- Step 6: Sanitize + score -->
+  <line x1="830" y1="555" x2="475" y2="555" stroke="#A687D4" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#seq-arr-back)"/>
+  <circle cx="845" cy="555" r="11" fill="#1E2A8A"/>
+  <text x="845" y="559" class="step-num" text-anchor="middle">6</text>
+  <text x="490" y="550" class="step-label">AnalysisResult (sanitized, scored)</text>
+
+  <!-- Step 7: Return to UI -->
+  <line x1="465" y1="595" x2="295" y2="595" stroke="#A687D4" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#seq-arr-back)"/>
+  <circle cx="460" cy="595" r="11" fill="#1E2A8A"/>
+  <text x="460" y="599" class="step-num" text-anchor="middle">7</text>
+  <text x="305" y="590" class="step-label">200 OK + result</text>
+
+  <!-- Step 8: Render -->
+  <line x1="285" y1="640" x2="115" y2="640" stroke="#A687D4" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#seq-arr-back)"/>
+  <circle cx="280" cy="640" r="11" fill="#1E2A8A"/>
+  <text x="280" y="644" class="step-num" text-anchor="middle">8</text>
+  <text x="125" y="635" class="step-label">Score ring + rubric + recs</text>
+
+  <!-- Step 9: Optional PDF -->
+  <line x1="110" y1="680" x2="285" y2="680" stroke="#5A5C72" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#seq-arr)"/>
+  <circle cx="100" cy="680" r="11" fill="#1E2A8A"/>
+  <text x="100" y="684" class="step-num" text-anchor="middle">9</text>
+  <text x="115" y="675" class="step-label">Click PDF (optional)</text>
+
+  <!-- Footer note -->
+  <text x="40" y="710" font-size="11" fill="#5A5C72" font-style="italic">Solid lines: synchronous request. Dashed lines: response or async return. Total time: 6-12 seconds.</text>
+</svg>

@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 600" width="1100" height="600" font-family="Manrope, system-ui, sans-serif">
+  <style>
+    .group-label { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+    .node-title { font-size: 13px; font-weight: 600; }
+    .node-sub { font-size: 11px; font-weight: 400; }
+    .formula { font-family: "JetBrains Mono", monospace; font-size: 11px; }
+    text { fill: #0A0A0A; }
+  </style>
+  <defs>
+    <marker id="d-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L9 5 L0 10 Z" fill="#5A5C72"/>
+    </marker>
+  </defs>
+
+  <!-- Input -->
+  <g>
+    <rect x="40" y="40" width="240" height="120" rx="14" fill="#D6E8F7" stroke="#6FA1D0" stroke-width="1.5"/>
+    <text x="60" y="64" class="group-label" fill="#1E2A8A">Input</text>
+    <text x="60" y="92" class="node-title">Site channels</text>
+    <text x="60" y="114" class="node-sub" fill="#5A5C72">Title, meta, H1/H2/H3,</text>
+    <text x="60" y="130" class="node-sub" fill="#5A5C72">CTAs detected, body text</text>
+    <text x="60" y="146" class="node-sub" fill="#5A5C72">capped at 8000 chars</text>
+  </g>
+
+  <!-- 5 Rubric dimensions -->
+  <g>
+    <rect x="360" y="40" width="380" height="500" rx="14" fill="#FCE0CC" stroke="#E89B5C" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="380" y="64" class="group-label" fill="#B8631A">Rubric (each scored 1 to 10)</text>
+
+    <!-- Dim 1 -->
+    <rect x="380" y="80" width="340" height="80" rx="10" fill="#FFFFFF" stroke="#E89B5C" stroke-width="1"/>
+    <circle cx="402" cy="106" r="13" fill="#FCE0CC" stroke="#E89B5C"/>
+    <text x="402" y="111" font-size="12" font-weight="700" text-anchor="middle" fill="#B8631A">1</text>
+    <text x="425" y="105" class="node-title">value_proposition</text>
+    <text x="425" y="124" class="node-sub" fill="#5A5C72">Is it instantly clear what the product does</text>
+    <text x="425" y="140" class="node-sub" fill="#5A5C72">and why it matters?</text>
+
+    <!-- Dim 2 -->
+    <rect x="380" y="170" width="340" height="80" rx="10" fill="#FFFFFF" stroke="#E89B5C" stroke-width="1"/>
+    <circle cx="402" cy="196" r="13" fill="#FCE0CC" stroke="#E89B5C"/>
+    <text x="402" y="201" font-size="12" font-weight="700" text-anchor="middle" fill="#B8631A">2</text>
+    <text x="425" y="195" class="node-title">audience_clarity</text>
+    <text x="425" y="214" class="node-sub" fill="#5A5C72">Is the target customer obvious from the</text>
+    <text x="425" y="230" class="node-sub" fill="#5A5C72">copy?</text>
+
+    <!-- Dim 3 -->
+    <rect x="380" y="260" width="340" height="80" rx="10" fill="#FFFFFF" stroke="#E89B5C" stroke-width="1"/>
+    <circle cx="402" cy="286" r="13" fill="#FCE0CC" stroke="#E89B5C"/>
+    <text x="402" y="291" font-size="12" font-weight="700" text-anchor="middle" fill="#B8631A">3</text>
+    <text x="425" y="285" class="node-title">cta_strength</text>
+    <text x="425" y="304" class="node-sub" fill="#5A5C72">Are CTAs specific, visible, and aligned with</text>
+    <text x="425" y="320" class="node-sub" fill="#5A5C72">user intent?</text>
+
+    <!-- Dim 4 -->
+    <rect x="380" y="350" width="340" height="80" rx="10" fill="#FFFFFF" stroke="#E89B5C" stroke-width="1"/>
+    <circle cx="402" cy="376" r="13" fill="#FCE0CC" stroke="#E89B5C"/>
+    <text x="402" y="381" font-size="12" font-weight="700" text-anchor="middle" fill="#B8631A">4</text>
+    <text x="425" y="375" class="node-title">jargon_level</text>
+    <text x="425" y="394" class="node-sub" fill="#5A5C72">Plain language (10) vs jargon-buried (1).</text>
+    <text x="425" y="410" class="node-sub" fill="#5A5C72">Inverted scale.</text>
+
+    <!-- Dim 5 -->
+    <rect x="380" y="440" width="340" height="80" rx="10" fill="#FFFFFF" stroke="#E89B5C" stroke-width="1"/>
+    <circle cx="402" cy="466" r="13" fill="#FCE0CC" stroke="#E89B5C"/>
+    <text x="402" y="471" font-size="12" font-weight="700" text-anchor="middle" fill="#B8631A">5</text>
+    <text x="425" y="465" class="node-title">scannability</text>
+    <text x="425" y="484" class="node-sub" fill="#5A5C72">Can a visitor grasp the offering in under</text>
+    <text x="425" y="500" class="node-sub" fill="#5A5C72">10 seconds of scanning?</text>
+  </g>
+
+  <!-- Score formula -->
+  <g>
+    <rect x="800" y="40" width="260" height="180" rx="14" fill="#E5DCF5" stroke="#A687D4" stroke-width="1.5"/>
+    <text x="820" y="64" class="group-label" fill="#1E2A8A">Aggregation</text>
+    <text x="820" y="92" class="node-title">Clarity score</text>
+    <text x="820" y="116" class="formula" fill="#1E2A8A">avg(d1, d2, d3, d4, d5)</text>
+    <text x="820" y="134" class="formula" fill="#5A5C72">rounded to 1 decimal</text>
+
+    <line x1="820" y1="148" x2="1040" y2="148" stroke="#A687D4" stroke-width="0.5"/>
+
+    <text x="820" y="168" class="node-sub" fill="#5A5C72">Why average instead of</text>
+    <text x="820" y="184" class="node-sub" fill="#5A5C72">weighted sum: rubric stays</text>
+    <text x="820" y="200" class="node-sub" fill="#5A5C72">interpretable, easy to debug</text>
+  </g>
+
+  <!-- Per-dimension reasoning -->
+  <g>
+    <rect x="800" y="240" width="260" height="160" rx="14" fill="#D4EDE2" stroke="#7FB89A" stroke-width="1.5"/>
+    <text x="820" y="264" class="group-label" fill="#2D7A52">Plus reasoning</text>
+    <text x="820" y="290" class="node-title">Per dimension</text>
+    <text x="820" y="312" class="node-sub" fill="#5A5C72">One sentence explaining</text>
+    <text x="820" y="328" class="node-sub" fill="#5A5C72">why that dimension got</text>
+    <text x="820" y="344" class="node-sub" fill="#5A5C72">that score, grounded in</text>
+    <text x="820" y="360" class="node-sub" fill="#5A5C72">specific site copy.</text>
+    <text x="820" y="384" class="node-sub" fill="#5A5C72" font-style="italic">No "improve your headline"</text>
+  </g>
+
+  <!-- Output: 3 suggestions -->
+  <g>
+    <rect x="800" y="420" width="260" height="160" rx="14" fill="#F7D7E0" stroke="#D17A95" stroke-width="1.5"/>
+    <text x="820" y="444" class="group-label" fill="#A33555">Output</text>
+    <text x="820" y="470" class="node-title">3 prioritized suggestions</text>
+    <text x="820" y="492" class="node-sub" fill="#5A5C72">issue: what is wrong</text>
+    <text x="820" y="508" class="node-sub" fill="#5A5C72">recommendation: what to do</text>
+    <text x="820" y="524" class="node-sub" fill="#5A5C72">example: rewritten copy</text>
+    <text x="820" y="540" class="node-sub" fill="#5A5C72">priority: high, medium, low</text>
+    <text x="820" y="566" class="node-sub" fill="#5A5C72" font-style="italic">Sorted by priority desc</text>
+  </g>
+
+  <!-- Connectors -->
+  <line x1="280" y1="290" x2="358" y2="290" stroke="#5A5C72" stroke-width="1.5" marker-end="url(#d-arr)"/>
+  <text x="290" y="284" class="node-sub" fill="#5A5C72">channels feed</text>
+  <text x="290" y="298" class="node-sub" fill="#5A5C72">all 5 dimensions</text>
+
+  <line x1="740" y1="120" x2="798" y2="120" stroke="#5A5C72" stroke-width="1.5" marker-end="url(#d-arr)"/>
+  <line x1="740" y1="320" x2="798" y2="320" stroke="#5A5C72" stroke-width="1.5" marker-end="url(#d-arr)"/>
+  <line x1="740" y1="500" x2="798" y2="500" stroke="#5A5C72" stroke-width="1.5" marker-end="url(#d-arr)"/>
+</svg>

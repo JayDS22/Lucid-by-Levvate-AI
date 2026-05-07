@@ -1,0 +1,8 @@
+Project-Scope
+node_modules
+.next
+.env
+.env.local
+.env*.local
+tsconfig.tsbuildinfo
+.DS_Store

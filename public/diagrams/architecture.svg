@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700" font-family="Manrope, system-ui, sans-serif">
+  <style>
+    .group-label { font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+    .node-title { font-size: 13px; font-weight: 600; }
+    .node-sub { font-size: 11px; font-weight: 400; }
+    .arrow-label { font-size: 11px; font-weight: 500; fill: #5A5C72; }
+    text { fill: #0A0A0A; }
+  </style>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L9 5 L0 10 Z" fill="#5A5C72"/>
+    </marker>
+    <marker id="arrI" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L9 5 L0 10 Z" fill="#1E2A8A"/>
+    </marker>
+  </defs>
+
+  <!-- ============== USER LAYER (topmost) ============== -->
+  <g>
+    <rect x="40" y="40" width="220" height="80" rx="14" fill="#F2F3FA" stroke="#1E2A8A" stroke-width="1.5"/>
+    <text x="60" y="65" class="group-label" fill="#1E2A8A">User</text>
+    <text x="60" y="92" class="node-title">Service-based business owner</text>
+    <text x="60" y="108" class="node-sub" fill="#5A5C72">Pastes a URL, wants clarity</text>
+  </g>
+
+  <!-- ============== FRONTEND LAYER ============== -->
+  <g>
+    <rect x="320" y="40" width="380" height="180" rx="16" fill="#D6E8F7" stroke="#6FA1D0" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="340" y="64" class="group-label" fill="#1E2A8A">Frontend (Next.js 14, React)</text>
+
+    <rect x="340" y="80" width="160" height="60" rx="10" fill="#FFFFFF" stroke="#6FA1D0" stroke-width="1"/>
+    <text x="420" y="105" class="node-title" text-anchor="middle">Login screen</text>
+    <text x="420" y="122" class="node-sub" text-anchor="middle" fill="#5A5C72">Iron-session auth</text>
+
+    <rect x="520" y="80" width="160" height="60" rx="10" fill="#FFFFFF" stroke="#6FA1D0" stroke-width="1"/>
+    <text x="600" y="105" class="node-title" text-anchor="middle">Hero + form</text>
+    <text x="600" y="122" class="node-sub" text-anchor="middle" fill="#5A5C72">URL or paste</text>
+
+    <rect x="340" y="150" width="160" height="60" rx="10" fill="#FFFFFF" stroke="#6FA1D0" stroke-width="1"/>
+    <text x="420" y="175" class="node-title" text-anchor="middle">Results dashboard</text>
+    <text x="420" y="192" class="node-sub" text-anchor="middle" fill="#5A5C72">Score ring, rubric</text>
+
+    <rect x="520" y="150" width="160" height="60" rx="10" fill="#FFFFFF" stroke="#6FA1D0" stroke-width="1"/>
+    <text x="600" y="175" class="node-title" text-anchor="middle">JSON / PDF toggle</text>
+    <text x="600" y="192" class="node-sub" text-anchor="middle" fill="#5A5C72">Export modes</text>
+  </g>
+
+  <!-- ============== API LAYER ============== -->
+  <g>
+    <rect x="760" y="40" width="400" height="180" rx="16" fill="#E5DCF5" stroke="#A687D4" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="780" y="64" class="group-label" fill="#1E2A8A">API routes (Next.js, serverless)</text>
+
+    <rect x="780" y="80" width="170" height="60" rx="10" fill="#FFFFFF" stroke="#A687D4" stroke-width="1"/>
+    <text x="865" y="105" class="node-title" text-anchor="middle">/api/auth</text>
+    <text x="865" y="122" class="node-sub" text-anchor="middle" fill="#5A5C72">Demo passcode</text>
+
+    <rect x="970" y="80" width="170" height="60" rx="10" fill="#FFFFFF" stroke="#A687D4" stroke-width="1"/>
+    <text x="1055" y="105" class="node-title" text-anchor="middle">/api/analyze</text>
+    <text x="1055" y="122" class="node-sub" text-anchor="middle" fill="#5A5C72">Scrape + score</text>
+
+    <rect x="875" y="150" width="170" height="60" rx="10" fill="#FFFFFF" stroke="#A687D4" stroke-width="1"/>
+    <text x="960" y="175" class="node-title" text-anchor="middle">/api/pdf</text>
+    <text x="960" y="192" class="node-sub" text-anchor="middle" fill="#5A5C72">Branded report</text>
+  </g>
+
+  <!-- ============== ANALYSIS PIPELINE (middle band) ============== -->
+  <g>
+    <rect x="40" y="280" width="1120" height="180" rx="16" fill="#FCE0CC" stroke="#E89B5C" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="60" y="304" class="group-label" fill="#B8631A">Analysis pipeline</text>
+
+    <!-- Step 1: Scrape -->
+    <rect x="60" y="320" width="180" height="120" rx="10" fill="#FFFFFF" stroke="#E89B5C" stroke-width="1"/>
+    <circle cx="78" cy="340" r="11" fill="#FCE0CC" stroke="#E89B5C" stroke-width="1"/>
+    <text x="78" y="344" font-size="11" font-weight="700" text-anchor="middle" fill="#B8631A">1</text>
+    <text x="100" y="345" class="node-title">Fetch</text>
+    <text x="76" y="372" class="node-sub" fill="#5A5C72">Native fetch with</text>
+    <text x="76" y="388" class="node-sub" fill="#5A5C72">15s timeout, follows</text>
+    <text x="76" y="404" class="node-sub" fill="#5A5C72">redirects, custom UA</text>
+
+    <!-- Step 2: Parse -->
+    <rect x="270" y="320" width="180" height="120" rx="10" fill="#FFFFFF" stroke="#E89B5C" stroke-width="1"/>
+    <circle cx="288" cy="340" r="11" fill="#FCE0CC" stroke="#E89B5C" stroke-width="1"/>
+    <text x="288" y="344" font-size="11" font-weight="700" text-anchor="middle" fill="#B8631A">2</text>
+    <text x="310" y="345" class="node-title">Cheerio parse</text>
+    <text x="286" y="372" class="node-sub" fill="#5A5C72">Strip nav, footer,</text>
+    <text x="286" y="388" class="node-sub" fill="#5A5C72">scripts, cookie</text>
+    <text x="286" y="404" class="node-sub" fill="#5A5C72">banners</text>
+
+    <!-- Step 3: Channel split -->
+    <rect x="480" y="320" width="180" height="120" rx="10" fill="#FFFFFF" stroke="#E89B5C" stroke-width="1"/>
+    <circle cx="498" cy="340" r="11" fill="#FCE0CC" stroke="#E89B5C" stroke-width="1"/>
+    <text x="498" y="344" font-size="11" font-weight="700" text-anchor="middle" fill="#B8631A">3</text>
+    <text x="520" y="345" class="node-title">Channel split</text>
+    <text x="496" y="372" class="node-sub" fill="#5A5C72">H1, H2, H3 headings</text>
+    <text x="496" y="388" class="node-sub" fill="#5A5C72">CTA detection</text>
+    <text x="496" y="404" class="node-sub" fill="#5A5C72">Body capped at 8k</text>
+
+    <!-- Step 4: Prompt -->
+    <rect x="690" y="320" width="180" height="120" rx="10" fill="#FFFFFF" stroke="#E89B5C" stroke-width="1"/>
+    <circle cx="708" cy="340" r="11" fill="#FCE0CC" stroke="#E89B5C" stroke-width="1"/>
+    <text x="708" y="344" font-size="11" font-weight="700" text-anchor="middle" fill="#B8631A">4</text>
+    <text x="730" y="345" class="node-title">Prompt assembly</text>
+    <text x="706" y="372" class="node-sub" fill="#5A5C72">Rubric system prompt</text>
+    <text x="706" y="388" class="node-sub" fill="#5A5C72">Channel-structured</text>
+    <text x="706" y="404" class="node-sub" fill="#5A5C72">user message</text>
+
+    <!-- Step 5: Claude -->
+    <rect x="900" y="320" width="240" height="120" rx="10" fill="#1E2A8A" stroke="#0E1340" stroke-width="1"/>
+    <circle cx="918" cy="340" r="11" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+    <text x="918" y="344" font-size="11" font-weight="700" text-anchor="middle" fill="#1E2A8A">5</text>
+    <text x="940" y="345" class="node-title" fill="#FFFFFF">Claude Sonnet 4.5</text>
+    <text x="916" y="372" class="node-sub" fill="#D8D9F2">Strict JSON output</text>
+    <text x="916" y="388" class="node-sub" fill="#D8D9F2">5 rubric scores</text>
+    <text x="916" y="404" class="node-sub" fill="#D8D9F2">+ 3 suggestions</text>
+  </g>
+
+  <!-- ============== POST-PROCESSING ============== -->
+  <g>
+    <rect x="40" y="500" width="540" height="160" rx="16" fill="#D4EDE2" stroke="#7FB89A" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="60" y="524" class="group-label" fill="#2D7A52">Post-processing</text>
+
+    <rect x="60" y="540" width="160" height="100" rx="10" fill="#FFFFFF" stroke="#7FB89A" stroke-width="1"/>
+    <text x="140" y="566" class="node-title" text-anchor="middle">Em-dash sanitizer</text>
+    <text x="140" y="588" class="node-sub" text-anchor="middle" fill="#5A5C72">Replaces U+2014</text>
+    <text x="140" y="604" class="node-sub" text-anchor="middle" fill="#5A5C72">deeply through tree</text>
+    <text x="140" y="624" class="node-sub" text-anchor="middle" fill="#5A5C72">recursively</text>
+
+    <rect x="240" y="540" width="160" height="100" rx="10" fill="#FFFFFF" stroke="#7FB89A" stroke-width="1"/>
+    <text x="320" y="566" class="node-title" text-anchor="middle">Score averaging</text>
+    <text x="320" y="588" class="node-sub" text-anchor="middle" fill="#5A5C72">5 dimensions</text>
+    <text x="320" y="604" class="node-sub" text-anchor="middle" fill="#5A5C72">averaged, rounded</text>
+    <text x="320" y="624" class="node-sub" text-anchor="middle" fill="#5A5C72">to 1 decimal</text>
+
+    <rect x="420" y="540" width="140" height="100" rx="10" fill="#FFFFFF" stroke="#7FB89A" stroke-width="1"/>
+    <text x="490" y="566" class="node-title" text-anchor="middle">Validate</text>
+    <text x="490" y="588" class="node-sub" text-anchor="middle" fill="#5A5C72">Type-checked at</text>
+    <text x="490" y="604" class="node-sub" text-anchor="middle" fill="#5A5C72">parse boundary,</text>
+    <text x="490" y="624" class="node-sub" text-anchor="middle" fill="#5A5C72">strict shape</text>
+  </g>
+
+  <!-- ============== OUTPUT LAYER ============== -->
+  <g>
+    <rect x="620" y="500" width="540" height="160" rx="16" fill="#F7D7E0" stroke="#D17A95" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="640" y="524" class="group-label" fill="#A33555">Output</text>
+
+    <rect x="640" y="540" width="160" height="100" rx="10" fill="#FFFFFF" stroke="#D17A95" stroke-width="1"/>
+    <text x="720" y="566" class="node-title" text-anchor="middle">Live UI</text>
+    <text x="720" y="588" class="node-sub" text-anchor="middle" fill="#5A5C72">Score ring, rubric</text>
+    <text x="720" y="604" class="node-sub" text-anchor="middle" fill="#5A5C72">bars, suggestions</text>
+    <text x="720" y="624" class="node-sub" text-anchor="middle" fill="#5A5C72">framer-motion</text>
+
+    <rect x="820" y="540" width="160" height="100" rx="10" fill="#FFFFFF" stroke="#D17A95" stroke-width="1"/>
+    <text x="900" y="566" class="node-title" text-anchor="middle">Branded PDF</text>
+    <text x="900" y="588" class="node-sub" text-anchor="middle" fill="#5A5C72">jsPDF, Levvate</text>
+    <text x="900" y="604" class="node-sub" text-anchor="middle" fill="#5A5C72">colors, embedded</text>
+    <text x="900" y="624" class="node-sub" text-anchor="middle" fill="#5A5C72">flow diagram</text>
+
+    <rect x="1000" y="540" width="140" height="100" rx="10" fill="#FFFFFF" stroke="#D17A95" stroke-width="1"/>
+    <text x="1070" y="566" class="node-title" text-anchor="middle">Raw JSON</text>
+    <text x="1070" y="588" class="node-sub" text-anchor="middle" fill="#5A5C72">Same payload</text>
+    <text x="1070" y="604" class="node-sub" text-anchor="middle" fill="#5A5C72">consumable by</text>
+    <text x="1070" y="624" class="node-sub" text-anchor="middle" fill="#5A5C72">downstream tools</text>
+  </g>
+
+  <!-- ============== CONNECTORS ============== -->
+  <!-- User to Frontend -->
+  <line x1="260" y1="80" x2="318" y2="80" stroke="#5A5C72" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Frontend to API -->
+  <line x1="700" y1="120" x2="758" y2="120" stroke="#5A5C72" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- API analyze to pipeline -->
+  <path d="M 1055 142 Q 1055 200 1055 280" fill="none" stroke="#1E2A8A" stroke-width="1.5" marker-end="url(#arrI)"/>
+  <text x="1065" y="220" class="arrow-label">POST</text>
+
+  <!-- Pipeline arrows (1 -> 5) -->
+  <line x1="240" y1="380" x2="268" y2="380" stroke="#5A5C72" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="450" y1="380" x2="478" y2="380" stroke="#5A5C72" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="660" y1="380" x2="688" y2="380" stroke="#5A5C72" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="870" y1="380" x2="898" y2="380" stroke="#5A5C72" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Claude back to post-processing -->
+  <path d="M 1020 442 Q 1020 470 700 480 Q 320 490 320 500" fill="none" stroke="#1E2A8A" stroke-width="1.5" marker-end="url(#arrI)"/>
+  <text x="600" y="476" class="arrow-label">JSON response</text>
+
+  <!-- Post-processing to output -->
+  <line x1="580" y1="580" x2="618" y2="580" stroke="#5A5C72" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Output back to API -->
+  <path d="M 720 540 Q 720 480 960 480 Q 960 220 960 215" fill="none" stroke="#5A5C72" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr)"/>
+</svg>

@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Manrope", system-ui;
+  --font-serif: "Instrument Serif", "Times New Roman", serif;
+  --font-sans: "Manrope", system-ui;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --indigo: #1E2A8A;
+  --indigo-deep: #141B5C;
+  --lavender: #D8D9F2;
+  --lavender-soft: #E8E9F7;
+  --lavender-mist: #F2F3FA;
+}
+
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+html { scroll-behavior: smooth; }
+html, body {
+  background: #FFFFFF;
+  color: #0A0A0A;
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv01";
+}
+
+::selection { background: var(--indigo); color: #FFFFFF; }
+
+/* hero gradient mimicking levvate.com */
+.hero-bg {
+  background:
+    radial-gradient(ellipse 1200px 400px at 50% -100px, rgba(30, 42, 138, 0.08), transparent 70%),
+    linear-gradient(180deg, #D8D9F2 0%, #E8E9F7 60%, #F2F3FA 100%);
+}
+
+.score-ring {
+  background: conic-gradient(var(--indigo) calc(var(--p) * 1%), #E8E9F7 0);
+  transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* premium hairline borders */
+.hairline { border: 1px solid rgba(30, 42, 138, 0.10); }
+.hairline-strong { border: 1px solid rgba(30, 42, 138, 0.18); }
+
+/* login screen blurred backdrop */
+.login-backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 800px 600px at 30% 20%, rgba(30, 42, 138, 0.18), transparent 60%),
+    radial-gradient(ellipse 600px 500px at 80% 70%, rgba(122, 125, 201, 0.14), transparent 60%),
+    linear-gradient(135deg, #D8D9F2 0%, #E8E9F7 50%, #F2F3FA 100%);
+  filter: blur(0px);
+  z-index: 0;
+}
+
+.login-backdrop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(30, 42, 138, 0.14) 0%, transparent 25%),
+    radial-gradient(circle at 75% 65%, rgba(30, 42, 138, 0.10) 0%, transparent 30%);
+  filter: blur(60px);
+}
+
+/* logo word treatment for the blurred login backdrop */
+.levvate-watermark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(160px, 22vw, 380px);
+  color: #1E2A8A;
+  opacity: 0.06;
+  letter-spacing: -0.04em;
+  filter: blur(2px);
+  user-select: none;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+/* thin animated gradient line on the login card top edge */
+.shimmer-line {
+  background: linear-gradient(90deg, transparent, #1E2A8A, transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* fade-in-up for staggered entrance */
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.rise { animation: rise 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+/* lucide icons inherit current color */
+svg { display: inline-block; vertical-align: middle; }
