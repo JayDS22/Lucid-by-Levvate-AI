@@ -9,7 +9,7 @@ The project is production-structured: typed end-to-end, auth-gated demo, branded
 **Demo video:** https://youtu.be/t55_OPuxRko
 **Built by:** Jay Guwalani for the Levvate AI Automation Intern technical assessment (May 2026).
 
-[![Lucid demo video](public/diagrams/thumbnail.png)](https://youtu.be/t55_OPuxRko)
+[![Lucid demo video](lucid-thumbnail.png)](https://youtu.be/t55_OPuxRko)
 
 ---
 
