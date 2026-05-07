@@ -6,8 +6,10 @@ The project is production-structured: typed end-to-end, auth-gated demo, branded
 
 **Live demo:** https://levvateai.netlify.app/login
 **Demo passcode:** `lucid2026`
-**Demo video:** [Loom link]
+**Demo video:** https://youtu.be/t55_OPuxRko
 **Built by:** Jay Guwalani for the Levvate AI Automation Intern technical assessment (May 2026).
+
+[![Lucid demo video](public/diagrams/thumbnail.png)](https://youtu.be/t55_OPuxRko)
 
 ---
 
