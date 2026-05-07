@@ -4,7 +4,7 @@ The clarity engine for service-based websites. Paste a URL, get a clarity score 
 
 The project is production-structured: typed end-to-end, auth-gated demo, branded PDF export with embedded architecture diagram, deployed serverless on Vercel.
 
-**Live demo:** https://lucid-levvate.vercel.app
+**Live demo:** https://levvateai.netlify.app/login
 **Demo passcode:** `lucid2026`
 **Demo video:** [Loom link]
 **Built by:** Jay Guwalani for the Levvate AI Automation Intern technical assessment (May 2026).
